@@ -1,0 +1,51 @@
+.container{
+  border: 1px solid gray;
+  display: inline-block;
+  width: 535px;
+  height: 660px;
+  border-radius: 5px;
+  margin: 25px 0px 25px 200px;
+  h1{
+    color: white;
+    margin: 0px;
+    font-size: 25px;
+    padding: 25px 25px 25px 25px;
+    font-weight: lighter;
+    background-color: rgb(62,138,204);
+  }
+  .submit-form{
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    select{
+      width: 500px;
+      margin: 10px 0px 10px 0px;
+    }
+    input{
+      width: 490px;
+      padding: 5px;
+      margin: 10px 0px 10px 0px;
+      border-radius: 5px;
+      border: 1px solid lightgray;
+    }
+    textarea{
+      width: 490px;
+      height: 80px;
+      padding: 5px;
+      margin: 10px 0px 10px 0px;
+      border-radius: 5px;
+      border: 1px solid lightgray;
+    }
+  }
+}
+  nav{
+    background-color: rgb(200,222,241);
+    button{
+      border: none;
+      background-color: rgb(62,138,204);
+      color: white;
+      margin: 25px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+}
