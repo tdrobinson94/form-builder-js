@@ -2,47 +2,62 @@ import $ from 'jquery';
 function logit(parameter){
   console.log(parameter)
 }
-var ajaxURL = 'http://json-data.herokuapp.com/forms';
-function inputData (){
-  var reults = $.ajax({
-    url: ajaxURL,
-    dataType: 'json'
-    // success: addToPage,
-    // error: logit
-  }).then(function(myasyncdata){
-      // console.log(response)
-    //  addToPage(myasyncdata)
-     myasyncdata.forEach(function(datum){
-      if(datum.type === "text" || datum.type === "email" || datum.type === "tel"){
-        createInput();
-      } else if (datum.type === "select"){
-        createSelect();
-      } else if(datum.type === "textarea"){
-        createTextarea();
-      }
+var ajaxURL = $.ajax('http://json-data.herokuapp.com/forms');
 
-     })
-  });
-};
+ajaxURL.then(function(myasyncdata){
+  console.log(myasyncdata);
+   myasyncdata.forEach(function(datum){
+    if(datum.type === "text" || datum.type === "email" || datum.type === "tel"){
+      var html = createInput(datum);
+      $('.form-area').append(html);
+    }else if (datum.type === "select"){
+      var html = createSelect(datum);
+      $('.form-area').append(html)
+    } else if(datum.type === "textarea"){
+      var html = createTextarea(datum);
+      $('.form-area').append(html)
+    }
 
-function createInput (formElement){
-  $('.submit-form').append(`<input />`)
-};
-function createSelect (formElement){
-  $('.submit-form').append(`<select></select>`)
-};
-function createTextarea (formElement){
-  $('.submit-form').append(`<textarea></textarea>`)
+   })
+});
+
+function createInput (obj){
+  return `
+    <div class="Box" id="${obj.id}">
+      <input type="${obj.type}" placeholder="${obj.label}" />
+      <i class="fa ${obj.icon}"></i>
+    </div>`;
 };
 
-function addToPage(data){
-  console.log(data)
-  $('.submit-form').before(dataTemplate(data));
+var optionsTemp = function(select){
+  var optionsHTML = select.options.map(function(option){
+    return `<option value="${option.value}">${option.label}</option>`
+    }).join("");
+    return optionsHTML;
 }
+
+function createSelect (obj){
+  return `
+  <div class="Box" id="${obj.id}">
+    <select>
+      <option value="">Select Language</option>
+      ${optionsTemp(obj)}
+    </select>
+    <i class="fa ${obj.icon}"></i>
+  </div>`;
+  <i class="fa ${obj.icon}"></i>
+};
+function createTextarea (obj){
+  return `
+  <div class="Box" id="${obj.id}">
+    <textarea type="${obj.type}" placeholder="${obj.label}"></textarea>
+    <i class="fa ${obj.icon}"></i>
+  </div>`
+}
+
 
 
 
 var button = $('.submit').on('click', function(event){
   event.preventDefault();
 });
-inputData()

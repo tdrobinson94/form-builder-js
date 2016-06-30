@@ -14,31 +14,76 @@
     background-color: rgb(62,138,204);
   }
   .submit-form{
-    text-align: center;
     padding: 10px 0px 10px 0px;
-    select{
-      width: 500px;
-      margin: 10px 0px 10px 0px;
-    }
-    input{
-      width: 490px;
-      padding: 5px;
-      margin: 10px 0px 10px 0px;
-      border-radius: 5px;
-      border: 1px solid lightgray;
-    }
-    textarea{
-      width: 490px;
-      height: 80px;
-      padding: 5px;
-      margin: 10px 0px 10px 0px;
-      border-radius: 5px;
-      border: 1px solid lightgray;
+    position: relative;
+    .form-area{
+      text-align: center;
+      .Box{
+        position: relative;
+        select{
+          width: 515px;
+          margin: 10px 0px 10px 0px;
+          height: 30px;
+          box-sizing: border-box;
+          background-color: white;
+          position: relative;
+          border: 1px solid lightgray;
+        }
+        input{
+          width: 480px;
+          padding: 5px 5px 5px 26px;
+          margin: 10px 0px 10px 0px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+          position: relative;
+          }
+        textarea{
+          width: 480px;
+          height: 99px;
+          padding: 5px 5px 5px 26px;
+          margin: 10px 0px 10px 0px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+          position: relative;
+        }
+        .fa-user{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+        .fa-envelope{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+        .fa-globe{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+        .fa-comments{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+        .fa-mobile-phone{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+        .fa-phone{
+          position: absolute;
+          top: 16px;
+          left: 20px;
+        }
+      }
     }
   }
 }
   nav{
     background-color: rgb(200,222,241);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     button{
       border: none;
       background-color: rgb(62,138,204);
